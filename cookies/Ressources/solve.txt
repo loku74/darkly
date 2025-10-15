@@ -1,0 +1,5 @@
+Il y a un cookie "I_am_admin" avec la valeur 68934a3e9455fa72420237eb05902327, qui décrypté en md5 donne "false".
+
+Par raisonnement logique, on pourrait encrypter la valeur "true" en md5 pour se faire passer pour un admin.
+
+En faisant cela, on obtient b326b5062b2f0e69046810717534cb09. Une fois le cookie "I_am_admin" modifié, ume simple requête GET nous donne le flag avec un alert().
