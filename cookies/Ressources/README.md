@@ -25,10 +25,10 @@ Le cookie contient donc la valeur "false" hashée en MD5, indiquant que l'utilis
 ### Étape 3: Génération du nouveau cookie
 Par logique inverse, nous générons le hash MD5 de "true" :
 
+```bash
+echo -n "true" | md5sum
+# b326b5062b2f0e69046810717534cb09
 ```
-"true" → b326b5062b2f0e69046810717534cb09
-```
-
 ### Étape 4: Manipulation du cookie
 1. Ouvrir les outils de développement du navigateur
 3. Modifier la valeur du cookie `I_am_admin` :
@@ -37,17 +37,6 @@ Par logique inverse, nous générons le hash MD5 de "true" :
 
 ### Étape 5: Exploitation finale
 Une fois le cookie modifié, une simple requête GET vers la page nous donne le flag via une alerte JavaScript.
-
-## Processus technique
-
-```bash
-# Déchiffrement de la valeur originale
-echo "68934a3e9455fa72420237eb05902327" | # Correspond à MD5("false")
-
-# Génération de la nouvelle valeur
-echo -n "true" | md5sum
-# Résultat: b326b5062b2f0e69046810717534cb09
-```
 
 ## Impact
 Cette vulnérabilité permet :
