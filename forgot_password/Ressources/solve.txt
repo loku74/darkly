@@ -1,5 +1,0 @@
-Visuellement il y a uniquement un bouton Submit pour envoyer le mot de passe à une adresse mail.
-Hors aucun mail n'est visible par l'utilisateur.
-
-On peut voir grâce au code source de la page que le mail est "hidden".
-Une fois affiché, on peut modifier et mettre n'importe quel mail pour avoir le flag.
