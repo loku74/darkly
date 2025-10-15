@@ -1,0 +1,14 @@
+1 union select table_name, column_name from information_schema.columns;
+
+Avec cette injection SQL, on peut récupérer toutes les tables et leurs colonnes de toutes les base de données.
+
+On remarque une table "db_default" qui a plusieurs colonnes intéressantes: id, username et password.
+
+Pour retrouver où se situe cette table, on liste toutes les databases ainsi que leurs tables à l'aide de cette requête sql:
+
+1 union select table_schema, table_name from information_schema.tables;
+
+On repère une base de donnée nommée Member_Brute_Force qui contient la table db_default.
+On peut ainsi accéder à cette table en utilisant la requête suivante:
+
+A FINIR z3bi
