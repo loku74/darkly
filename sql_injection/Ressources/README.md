@@ -26,7 +26,7 @@ Parmi les résultats, nous identifions une table prometteuse : `users` qui conti
 - `countersign`
 
 ### Étape 3: Confirmation de la base de données courante
-En analysant le comportement de l'application, nous remarquons que lors d'une recherche par ID, nous obtenons un `first_name` et un `last_name`. Cela suggère que nous sommes déjà dans la base de données contenant la table `users`.
+En analysant le comportement de la page dans laquelle nous sommes (là où nous faisont les injections SQL), on remarque que lors d'une recherche par ID, nous obtenons un `first_name` et un `last_name`. Cela suggère que nous sommes déjà dans la base de données contenant la table `users`.
 
 ### Étape 4: Extraction des données sensibles
 Après plusieurs essais, nous trouvons que les colonnes `countersign` et `Commentaire` contiennent des données sensibles.
