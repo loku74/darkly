@@ -1,4 +1,4 @@
-# Information Disclosure - robots.txt & htpasswd
+# Information Disclosure - robots.txt & hidden folder
 
 ## Description
 Cette vulnérabilité exploite la divulgation d'informations sensibles via le fichier `robots.txt` et la découverte d'un dossier `.hidden`.
