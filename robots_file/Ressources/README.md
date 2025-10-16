@@ -26,9 +26,9 @@ Ce fichier révèle deux répertoires que les robots ne doivent pas explorer :
 - `/whatever`
 - `/.hidden`
 
-Le repertoire .hidden contient des des dossiers dans lesquels se trouvent des readme.
+Le repertoire .hidden contient des dossiers avec des noms aléatoires dans lesquels se trouvent d'autres dossiers similaires et des fichiers readme.
 
-En regardant dans un readme au hasard, on trouve une phrase sans interet mais en recuperant le contenu de tous ces readme, on decouvre que l'un d'entre eux contient un flag.
+En regardant dans un readme au hasard, on trouve une phrase sans intérêt mais en récupérant le contenu de tous ces readme grâce à un script bash, on découvre que l'un d'entre eux contient un flag.
 
 ### Bonne pratique (sécurisée)
 ```
