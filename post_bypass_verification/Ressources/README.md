@@ -1,13 +1,36 @@
-Cette faille exploite la faible verification du type de fichier uploader sur le serveur.
+# File Upload Bypass - Content-Type Manipulation
 
-Etape 1:
-- Sur la page d'upload, selectionner un fichier image (ex: image.jpg)
-Ensuite on test avec un fichier php malveillant en .php qui ne va pas pouvoir etre uploader.
+## Description
+Cette vulnérabilité exploite une faible vérification du type de fichier côté serveur, permettant l'upload de fichiers malveillants en manipulant les headers HTTP.
 
-Etape 2:
-- On sait que le fichier envoyé doit etre une image jpeg.
-On relance l'upload du fichier php soit depuis la ligne de commande avec curl ou avec burp suite en modifiant l'extension la valeur du champ Content-Type en de application/x-php en image/jpeg.
+## Exploitation
 
-Le site va accepter le fichier car il ne verifie pas le contenu reel du fichier.
+### Étape 1: Analyse de la page d'upload et test
+La page d'upload présente un formulaire permettant de télécharger des fichiers avec les restrictions suivantes :
+- **Types acceptés** : Images JPEG uniquement
+- **Validation** : Basée sur le Content-Type HTTP
 
-Pour corriger cette faille, il faut verifier l'extension du fichier ainsi que son type MIME et idealement analyser le contenu du fichier pour s'assurer qu'il correspond bien a une image.
+Tentative d'upload d'un fichier PHP malveillant :
+
+```php
+<?php
+// shell.php
+system($_GET['cmd']);
+?>
+```
+
+**Fichier testé** : `shell.php`
+**Résultat** : Upload refusé
+
+### Étape 2: Contournement par manipulation du Content-Type
+Le serveur ne vérifiant que le header `Content-Type`, nous pouvons le manipuler pour faire accepter notre fichier malveillant.
+
+### Étape 3: Exploitation réussie et obtention du flag
+Avec le Content-Type modifié de `application/x-php` vers `image/jpeg`, le serveur accepte le fichier malveillant car il ne vérifie pas le contenu réel du fichier.
+
+**Résultat** : Upload réussi ✅ → Flag obtenu !
+
+Cette vulnérabilité permet :
+- **Remote Code Execution (RCE)** : Contrôle total du serveur
+- **Défiguration du site** : Modification du contenu web
+- **Escalade de privilèges** : Accès aux fichiers système
