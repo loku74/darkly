@@ -48,6 +48,5 @@ Cette vulnérabilité permet :
 
 ### Solutions recommandées :
 1. **Signatures cryptographiques** : Signer les cookies avec une clé secrète côté serveur
-2. **Tokens JWT** : Utiliser des JSON Web Tokens signés
 3. **Sessions côté serveur** : Stocker les informations sensibles sur le serveur
 4. **Validation systématique** : Toujours vérifier les privilèges côté serveur
