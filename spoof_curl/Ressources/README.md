@@ -50,21 +50,22 @@ Ces commentaires font référence à deux en-têtes HTTP spécifiques :
 Pour obtenir le flag, nous devons envoyer une requête GET avec les en-têtes modifiés :
 
 ```bash
-curl --location 'http://localhost:8080/index.php?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f' \
---header 'User-Agent: ft_bornToSec' \
---header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
---header 'Accept-Language: en-US,en;q=0.5' \
---header 'Accept-Encoding: gzip, deflate, br, zstd' \
---header 'Connection: keep-alive' \
---header 'Referer: https://www.nsa.gov/' \
---header 'Cookie: I_am_admin=68934a3e9455fa72420237eb05902327' \
---header 'Upgrade-Insecure-Requests: 1' \
---header 'Sec-Fetch-Dest: document' \
---header 'Sec-Fetch-Mode: navigate' \
---header 'Sec-Fetch-Site: same-origin' \
---header 'Sec-Fetch-User: ?1' \
---header 'Priority: u=0, i'
-```
+curl 'http://localhost:8080/index.php?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f' \
+  --compressed \
+  -H 'User-Agent: ft_bornToSec' \
+  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
+  -H 'Accept-Language: en-US,en;q=0.5' \
+  -H 'Accept-Encoding: gzip, deflate, br, zstd' \
+  -H 'Referer: https://www.nsa.gov/' \
+  -H 'Connection: keep-alive' \
+  -H 'Cookie: I_am_admin=68934a3e9455fa72420237eb05902327' \
+  -H 'Upgrade-Insecure-Requests: 1' \
+  -H 'Sec-Fetch-Dest: document' \
+  -H 'Sec-Fetch-Mode: navigate' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'Sec-Fetch-User: ?1' \
+  -H 'Priority: u=0, i'
+  ```
 
 Avec les en-têtes corrects, le serveur nous retourne le flag.
 
